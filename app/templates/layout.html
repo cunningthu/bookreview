@@ -1,0 +1,43 @@
+{% extends "bootstrap/base.html" %}
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+<link rel='icon' href="{{ url_for('static', filename='images/favicon1.ico') }}" type='image/x-icon' />
+{% endblock %}
+
+{% block navbar %}
+<header>
+  <a href="{{ url_for('index') }}" class="header-brand">Book Review</a>
+  <nav>
+    <ul>
+      <li><a href="{{ url_for('index') }}">Home</a></li>
+      {% if current_user.is_anonymous %}
+      <li><a href="{{ url_for('login') }}">Login</a></li>
+      {% else %}
+      <li><a href="{{ url_for('logout') }}">Logout</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+</header>
+{% endblock %}
+
+{% block content %}
+<!-- get_flash_messages() in chapt3 if you need to add -->
+<main id=main>
+  <hr>
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endwith %}
+  <h1>{% block heading %}{% endblock %}</h1>
+  <div class="container">
+    {% block bodying %}
+    {% endblock %}
+  </div>
+</main>
+{% endblock %}

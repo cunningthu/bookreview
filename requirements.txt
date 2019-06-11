@@ -1,0 +1,25 @@
+In order to run this web applications, you will need the following:
+- Flask
+- Flask-Session
+- flask-login
+- flask-wtf
+- flask-sqlalchemy
+- flask-migrate
+- PostgreSQL
+- pg8000
+
+
+- autoenv (for setting FLASK_APP=bookreview.py permanently when in project1 folder)
+run (on cmd.exe): set FLASK_APP=bookreview.py
+
+# to clear dns cache
+run: ipconfig /flushdns
+
+replace db info in config.py
+remove migrations directory
+run: flask db init (this will create a new migrations directory)
+
+
+While in the project1 folder (windows cmd.exe):
+run: python create.py (to create tables in database)
+run: Flask run
