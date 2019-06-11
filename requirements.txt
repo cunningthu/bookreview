@@ -22,4 +22,5 @@ run: flask db init (this will create a new migrations directory)
 
 While in the project1 folder (windows cmd.exe):
 run: python create.py (to create tables in database)
+run: import.py (to add books to database)
 run: Flask run
